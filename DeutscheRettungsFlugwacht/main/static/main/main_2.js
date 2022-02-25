@@ -28,6 +28,8 @@ function checkTime(i) {
 
 var request = new XMLHttpRequest();
 
+// Many thanks and best regards for the sunrise and sunset API.
+// https://sunrise-sunset.org/api
 request.open(
   "GET",
   "https://api.sunrise-sunset.org/json?lat=54.216737&lng=9.599856&date=today"

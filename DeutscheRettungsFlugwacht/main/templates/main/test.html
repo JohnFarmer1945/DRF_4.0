@@ -21,7 +21,7 @@
       class="navbar sticky-top navbar-expand-md navbar-light bg-light justify-content-left"
     >
       <div class="container-fluid">
-        <a class="navbar-brand" href="index_2.html">
+        <a class="navbar-brand" href="{% url 'test' %}">
           <img
             src="{% static 'main/img/logo.png' %}"
             alt="Avatar Logo"
@@ -45,8 +45,15 @@
             <a href="#Diverses" class="nav-item nav-link">Diverses</a>
           </div>
           <div class="navbar-nav ms-auto">
-            <a href="#" id="admin-button" class="nav-item nav-link">Log-In</a>
-            <a href="index_2.html" class="nav-item nav-link" id="time">Uhr</a>
+            <a
+              href="{% url 'admin:index' %}"
+              id="admin-button"
+              class="nav-item nav-link"
+              >Log-In</a
+            >
+            <a href="{% url 'test' %}" class="nav-item nav-link" id="time"
+              >Uhr</a
+            >
           </div>
         </div>
       </div>
@@ -274,7 +281,7 @@
       integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
       crossorigin="anonymous"
     ></script>
-    <script src="main_2.js"></script>
+    <script src="{% static 'main/main_2.js' %}"></script>
     <script>
       const questionArrayFlight = {{ js_list | safe }};
       console.log(questionArrayFlight);
@@ -283,18 +290,7 @@
 </html>
 
 <!--  BAUSTEINE
-     
-    
     <div class="container-fluid bg-light text-black">
       <h6>Tagesplanung</h6>
     </div> 
-  
-  
-
-
-<!DOCTYPE html>
-
-    <img src="{% static 'main/img/Anhang_1.jpg' %}" alt="My image" />
-  </body>
- 
-</html> -->
+   -->
