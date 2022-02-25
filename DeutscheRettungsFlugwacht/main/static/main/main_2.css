@@ -1,0 +1,65 @@
+.bg-image {
+  position: relative;
+  text-align: center;
+  color: white;
+}
+
+.centered {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background: rgba(0, 0, 0, 0.6);
+  width: 100%;
+  padding: 0.4rem;
+}
+
+.center_left {
+  border-left: solid 8px #e30613;
+  text-align: left;
+}
+
+#admin-button {
+  background-color: grey;
+  color: white;
+}
+
+.navbar-nav {
+  font-size: 0.9rem;
+}
+
+#navbarCollapse {
+  text-align: center;
+}
+
+.headline-container {
+  background: rgba(0, 0, 0, 0.8);
+  border-left: solid 8px #e30613;
+  color: white;
+  padding: 0.2rem;
+  padding-top: 0.5rem;
+  padding-left: 0.4rem;
+}
+
+.headline-container h4 {
+  font-weight: bold;
+}
+
+.check-list {
+  list-style-type: square;
+}
+
+a {
+  color: white;
+}
+
+.my_btn {
+  color: white;
+  background-color: black;
+  padding: 0.6rem;
+}
+
+.my_btn:hover {
+  background-color: black;
+  border: solid 4px red;
+  
