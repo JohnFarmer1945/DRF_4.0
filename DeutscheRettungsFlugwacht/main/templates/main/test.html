@@ -13,7 +13,7 @@
       integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC"
       crossorigin="anonymous"
     />
-    <link rel="stylesheet" href="{% static 'main/main_2.css' %}" />
+    <link rel="stylesheet" href="{% static 'main/main_3.css' %}" />
   </head>
 
   <body onload="startTime()">
@@ -234,8 +234,8 @@
         class="img-fluid"
         alt="Sample"
       />
-      <div class="centered center_left">
-        <button type="button" class="my_btn">
+      <div class="centered center_text">
+        <button type="button" class="my_btn" onclick="randomQuestionFlight()">
           Flugbetriebliches Notverfahren (click for question)
         </button>
         <p id="flightQues"></p>
@@ -281,10 +281,17 @@
       integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
       crossorigin="anonymous"
     ></script>
-    <script src="{% static 'main/main_2.js' %}"></script>
+    <script src="{% static 'main/main_3.js' %}"></script>
     <script>
-      const questionArrayFlight = {{ js_list | safe }};
-      console.log(questionArrayFlight);
+        const questionArrayFlight = {{ js_list | safe }};
+        console.log(questionArrayFlight);
+
+        function randomQuestionFlight() {
+        let y = Math.floor(Math.random() * questionArrayFlight.length);
+        let z = y + 1;
+        var x = document.getElementById("flightQues");
+        x.innerHTML = "Frage " + z + ": " + '"' + questionArrayFlight[y] + '"';
+      }
     </script>
   </body>
 </html>
