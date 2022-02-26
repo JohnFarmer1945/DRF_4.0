@@ -283,14 +283,23 @@
     ></script>
     <script src="{% static 'main/main_3.js' %}"></script>
     <script>
-        const questionArrayFlight = {{ js_list | safe }};
-        console.log(questionArrayFlight);
+      const questionArrayFlight = {{ js_list_Notverfahren_Flug | safe }};
+      console.log(questionArrayFlight);
 
-        function randomQuestionFlight() {
+      function randomQuestionFlight() {
         let y = Math.floor(Math.random() * questionArrayFlight.length);
         let z = y + 1;
         var x = document.getElementById("flightQues");
         x.innerHTML = "Frage " + z + ": " + '"' + questionArrayFlight[y] + '"';
+      }
+
+      const questionArrayMed = {{ js_list_Notverfahren_Medizin | safe }};
+
+      function randomQuestionMed() {
+        let y = Math.floor(Math.random() * questionArrayMed.length);
+        let z = y + 1;
+        var x = document.getElementById("medQues");
+        x.innerHTML = "Frage " + z + ": " + '"' + questionArrayMed[y] + '"';
       }
     </script>
   </body>
