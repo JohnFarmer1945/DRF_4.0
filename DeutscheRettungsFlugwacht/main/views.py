@@ -1,7 +1,8 @@
 from django.shortcuts import render
 #from django.http import HttpResponse
-from .models import Notverfahren_Flug, Notverfahren_Medizin
-import random, json
+from .models import Notverfahren_Flug, Notverfahren_Medizin, Tagesaufgabe
+import random, json, datetime
+
 # Create your views here.
 
 def home(response):
@@ -22,9 +23,17 @@ def test(response):
     for obj in all_obj_Notverfahren_Medizin:
         js_list_Notverfahren_Medizin.append(obj.name)
     
+    date = datetime.datetime.now()
+    day_now = date.strftime("%A")
+    obj_tagesaufgabe_flug_med = Tagesaufgabe.objects.get(tag=day_now)
+
     context = {
         "js_list_Notverfahren_Flug" : json.dumps(js_list_Notverfahren_Flug),
         "js_list_Notverfahren_Medizin" : json.dumps(js_list_Notverfahren_Medizin),
+        "flight_task_day" : obj_tagesaufgabe_flug_med.flight_task_day,
+        "flight_task_night" : obj_tagesaufgabe_flug_med.flight_task_night, 
+        "med_task_day" : obj_tagesaufgabe_flug_med.med_task_day,
+        "med_task_night" : obj_tagesaufgabe_flug_med.med_task_night,
     }
-    
+
     return render(response, "main/test.html", context)
