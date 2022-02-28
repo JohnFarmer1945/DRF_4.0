@@ -5,14 +5,14 @@ import random, json, datetime
 
 # Create your views here.
 
-def home(response):
-    all_ = flightquest.objects.all()
-    random_num = random.randint(0, len(all_entries)-1)
-    random_flightquest = all_entries[random_num]
-    return render(response, "main/home.html", {})
+# def home(response):
+#     all_ = flightquest.objects.all()
+#     random_num = random.randint(0, len(all_entries)-1)
+#     random_flightquest = all_entries[random_num]
+#     return render(response, "main/home.html", {})
     
 
-def test(response):
+def home(response):
     all_obj_Notverfahren_Flug = Notverfahren_Flug.objects.all()
     js_list_Notverfahren_Flug = []
     for obj in all_obj_Notverfahren_Flug:
@@ -36,4 +36,4 @@ def test(response):
         "med_task_night" : obj_tagesaufgabe_flug_med.med_task_night,
     }
 
-    return render(response, "main/test.html", context)
+    return render(response, "main/home.html", context)
