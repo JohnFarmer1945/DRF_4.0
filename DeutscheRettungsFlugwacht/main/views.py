@@ -5,13 +5,6 @@ import random, json, datetime
 
 # Create your views here.
 
-# def home(response):
-#     all_ = flightquest.objects.all()
-#     random_num = random.randint(0, len(all_entries)-1)
-#     random_flightquest = all_entries[random_num]
-#     return render(response, "main/home.html", {})
-    
-
 def home(response):
     all_obj_Notverfahren_Flug = Notverfahren_Flug.objects.all()
     js_list_Notverfahren_Flug = []
