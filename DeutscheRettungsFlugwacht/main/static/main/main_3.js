@@ -29,6 +29,11 @@ function checkTime(i) {
 // https://sunrise-sunset.org/api
 
 var request = new XMLHttpRequest();
+var d = new Date();
+d = d.toString();
+d = d.slice(30, 31);
+d = parseFloat(d);
+console.log(d);
 
 request.open(
   "GET",
@@ -42,11 +47,12 @@ request.onload = function () {
     let sunrise = data["results"]["sunrise"];
     let sunset = data["results"]["sunset"];
 
-    sunrise = parseFloat(sunrise) + 1 + ":" + sunrise.slice(2, 4);
+    console.log(sunset);
+    sunrise = parseFloat(sunrise) + d + ":" + sunrise.slice(2, 4);
     console.log(sunrise);
     document.getElementById("sunrise").innerHTML = sunrise;
 
-    sunset = parseFloat(sunset) + 13 + ":" + sunset.slice(2, 4);
+    sunset = parseFloat(sunset) + (12 + d) + ":" + sunset.slice(2, 4);
     console.log(sunset);
     document.getElementById("sunset").innerHTML = sunset;
   } else {
