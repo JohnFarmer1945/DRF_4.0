@@ -66,18 +66,18 @@
         alt="Sample"
       />
       <div class="centered">
-        <h3 style="font-weight: bold">
+        <h1 style="font-weight: bold">
           <span style="color: #e30613">DRF</span> Crewbriefing
-        </h3>
-        <h3 style="font-weight: bold">
+        </h1>
+        <h1 style="font-weight: bold">
           Station Rendsburg Schachtholm - Christoph 42
-        </h3>
+        </h1>
         <br />
-        <h6 id="time_1"></h6>
-        <h6>
+        <h3 id="time_1"></h3>
+        <h3>
           Sonnenaufgang: <span id="sunrise"></span> | Sonnenuntergang:
           <span id="sunset"></span>
-        </h6>
+        </h3>
       </div>
     </div>
 
@@ -191,7 +191,7 @@
           </li>
           <li>
             <div style="color: yellow">
-              Nachtschicht: {{ flight_task_night }}
+              <h2>Nachtschicht: {{ flight_task_night }}</h2>
             </div>
           </li>
         </ul>
@@ -240,12 +240,12 @@
         <button type="button" class="my_btn" onclick="randomQuestionFlight()">
           Flugbetriebliches Notverfahren (click for question)
         </button>
-        <p id="flightQues"></p>
-
+        <h3><p id="flightQues"></p></h3>
+        <br />
         <button type="button" class="my_btn" onclick="randomQuestionMed()">
           Medizinisches Verfahren (click for question)
         </button>
-        <p id="medQues"></p>
+        <h3><p id="medQues"></p></h3>
       </div>
     </div>
 
