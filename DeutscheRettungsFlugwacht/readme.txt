@@ -1,8 +1,11 @@
-Deutscher Wetterdienst Heliport weg. F
+todo:
 Passwort Browser absprechen: F
 Korrekter Heliportal Link O
 Nachtiefflug inkorrekter Link O
 
+
+Präsentation:
+- Neuer Admin Bereich
 
 Fragen an DRF:
 - Welche Notverfahren Medizin
