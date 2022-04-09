@@ -1,11 +1,14 @@
 todo:
 Passwort Browser absprechen: F
-Korrekter Heliportal Link O
-Nachtiefflug inkorrekter Link O
+
 
 
 Präsentation:
 - Neuer Admin Bereich
+
+Fragen Ole:
+Korrekter Heliportal Link O
+Nachtiefflug inkorrekter Link O
 
 Fragen an DRF:
 - Welche Notverfahren Medizin
