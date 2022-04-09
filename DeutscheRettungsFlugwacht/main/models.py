@@ -30,4 +30,4 @@ class Tagesaufgabe(models.Model):
         verbose_name_plural = 'Tagesaufgabe'
 
     def __str__(self):
-        return self.tag    
+        return f"{self.tag}"
