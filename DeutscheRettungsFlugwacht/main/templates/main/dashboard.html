@@ -7,7 +7,7 @@
   <a href="{% url 'index' %}" class="navbar-brand p-1">
     <img src="{% static 'main/img/logo.png' %}" height="20" />
   </a>
-
+  <p>Hello, {{ user.username|default:'Guest' }}!</p>
   <button
     class="navbar-toggler"
     type="button"

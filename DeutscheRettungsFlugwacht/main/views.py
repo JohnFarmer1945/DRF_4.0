@@ -5,7 +5,7 @@ from .models import Notverfahren_Flug, Notverfahren_Medizin, Tagesaufgabe
 import random, json, datetime
 from django.contrib import messages 
 
-from .forms import NameForm, ContactForm, UpdateForm
+from .forms import UpdateForm
 
 # Create your views here.
 
@@ -37,7 +37,7 @@ def home(response):
 
 
 
-def notverfahren(request):
+def dashboard(request):
     UpdateForm.base_fields ["name"].widget.attrs ["size"] = "50"
     if request.method == 'POST':
         form = UpdateForm(request.POST)
@@ -51,19 +51,19 @@ def notverfahren(request):
                 new_entry = Notverfahren_Medizin(name=new_field)
                 messages.success(request, "New entry saved in databank." )
                 new_entry.save()
-                return redirect('notverfahren')
+                return redirect('dashboard')
             elif del_field == True:
                 x.delete()
                 messages.success(request, "Entry deleted." )
-                return redirect('notverfahren')
+                return redirect('dashboard')
             elif x.name != new_name:
                 x.name = new_name
                 x.save()
                 messages.success(request, "Entry changed." )
-                return redirect('notverfahren')
+                return redirect('dashboard')
             else:
                 messages.error(request, "Identical Entry. Entry NOT changed." )
-                return redirect('notverfahren')
+                return redirect('dashboard')
         
 
 
@@ -81,30 +81,10 @@ def notverfahren(request):
             'new_entry_form' : new_entry_form}
             
         
-    return render(request, "main/notverfahren.html", context)
+    return render(request, "main/dashboard.html", context)
 
 
 
-def form_test(request):
-    if request.method == 'POST':
-        form = NameForm(request.POST)
-        if form.is_valid():
-            return HttpResponse("<h1> THX </h1>")
-    else:
-        form = NameForm()
 
-    context = {'form' : form}
-    return render(request, "main/form_test.html", context)
-
-
-def contact_form(request):
-    if request.method == 'POST':
-        form = ContactForm(request.POST)
-        if form.is_valid():
-            return HttpResponse("<h1> THX </h1>")
-    else: 
-        form = ContactForm()
-    context = {'form' : form}
-    return render(request, "main/contact_form.html", context)
 
 

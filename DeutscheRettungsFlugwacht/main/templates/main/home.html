@@ -19,62 +19,26 @@
   >
     <span class="navbar-toggler-icon"></span>
   </button>
-  <div class="collapse navbar-collapse bg-white text-center" id="navbarText">
+  <div
+    class="collapse navbar-collapse bg-white text-center m-1"
+    id="navbarText"
+  >
     <div class="navbar-nav p-1">
       <a href="#Allgemein" class="nav-item nav-link">Allgemein</a>
       <a href="#Flugbetrieb" class="nav-item nav-link">Flugbetrieb</a>
       <a href="#Medizin" class="nav-item nav-link">Medizin</a>
       <a href="#Notverfahren" class="nav-item nav-link">Notverfahren</a>
       <a href="#Diverses" class="nav-item nav-link">Diverses</a>
+      <a href="{% url 'dashboard' %}" class="btn btn-grey border m-1"
+        >Log-In User</a
+      >
       <a href="{% url 'admin:index' %}" class="btn btn-grey border m-1"
-        >Log-In</a
+        >Admin</a
       >
     </div>
   </div>
 </nav>
 
-<!-- OLD -->
-<!-- <nav
-      class="navbar sticky-top navbar-expand-md navbar-light bg-light justify-content-left"
-    >
-      <div class="container-fluid">
-        <a class="navbar-brand" href="{% url 'index' %}">
-          <img
-            src="{% static 'main/img/logo.png' %}"
-            alt="Avatar Logo"
-            style="width: 150px"
-          />
-        </a>
-        <button
-          type="button"
-          class="navbar-toggler"
-          data-bs-toggle="collapse"
-          data-bs-target="#navbarCollapse"
-        >
-          <span class="navbar-toggler-icon"></span>
-        </button>
-        <div class="collapse navbar-collapse" id="navbarCollapse">
-          <div class="navbar-nav">
-            <a href="#Allgemein" class="nav-item nav-link">Allgemein</a>
-            <a href="#Flugbetrieb" class="nav-item nav-link">Flugbetrieb</a>
-            <a href="#Medizin" class="nav-item nav-link">Medizin</a>
-            <a href="#Notverfahren" class="nav-item nav-link">Notverfahren</a>
-            <a href="#Diverses" class="nav-item nav-link">Diverses</a>
-          </div>
-          <div class="navbar-nav ms-auto">
-            <a
-              href="{% url 'admin:index' %}"
-              id="admin-button"
-              class="nav-item nav-link"
-              >Log-In</a
-            >
-            <a href="{% url 'index' %}" class="nav-item nav-link" id="time"
-              >Uhr</a
-            >
-          </div>
-        </div>
-      </div>
-    </nav>  -->
 <div class="position-relative">
   <div id="startcarousel" class="carousel" data-bs-ride="carousel">
     <div class="carousel-inner">
@@ -150,10 +114,7 @@
 
 <br />
 
-<div
-  class="container-fluid headline-container bg-white text-dark border-1"
-  id="Allgemein"
->
+<div class="container-fluid headline-container" id="Allgemein">
   <h4>Allgemein</h4>
 </div>
 
@@ -329,5 +290,25 @@
       >Technische Publikationen</a
     >
   </div>
-  {% endblock %}
 </div>
+<script>
+  const questionArrayFlight = {{ js_list_Notverfahren_Flug | safe }};
+  console.log(questionArrayFlight);
+
+  function randomQuestionFlight() {
+    let y = Math.floor(Math.random() * questionArrayFlight.length);
+    let z = y + 1;
+    var x = document.getElementById("flightQues");
+    x.innerHTML = "Frage " + z + ": " + '"' + questionArrayFlight[y] + '"';
+  }
+
+  const questionArrayMed = {{ js_list_Notverfahren_Medizin | safe }};
+
+  function randomQuestionMed() {
+    let y = Math.floor(Math.random() * questionArrayMed.length);
+    let z = y + 1;
+    var x = document.getElementById("medQues");
+    x.innerHTML = "Frage " + z + ": " + '"' + questionArrayMed[y] + '"';
+  }
+</script>
+{% endblock %}
