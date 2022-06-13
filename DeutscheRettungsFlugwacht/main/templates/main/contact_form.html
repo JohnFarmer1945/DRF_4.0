@@ -1,0 +1,45 @@
+{% extends 'main/main_temp.html' %}
+<!---->
+{% load static %}
+<!---->
+{% block content %}
+<nav class="navbar sticky-top navbar-expand-lg navbar-white bg-white">
+  <a href="{% url 'index' %}" class="navbar-brand p-1">
+    <img src="{% static 'main/img/logo.png' %}" height="20" />
+  </a>
+  <a class="nav-item nav-link p-1" id="time">date | time</a>
+  <button
+    class="navbar-toggler"
+    type="button"
+    data-bs-toggle="collapse"
+    data-bs-target="#navbarText"
+    aria-controls="navbarText"
+    aria-expanded="false"
+    aria-label="Toggle navigation"
+  >
+    <span class="navbar-toggler-icon"></span>
+  </button>
+  <div class="collapse navbar-collapse bg-white text-center" id="navbarText">
+    <div class="navbar-nav p-1">
+      <a href="#Allgemein" class="nav-item nav-link">Allgemein</a>
+      <a href="#Flugbetrieb" class="nav-item nav-link">Flugbetrieb</a>
+      <a href="#Medizin" class="nav-item nav-link">Medizin</a>
+      <a href="#Notverfahren" class="nav-item nav-link">Notverfahren</a>
+      <a href="#Diverses" class="nav-item nav-link">Diverses</a>
+      <a href="{% url 'admin:index' %}" class="btn btn-grey border m-1"
+        >Log-In</a
+      >
+    </div>
+  </div>
+</nav>
+
+<br />
+<hr />
+<br />
+
+<form action="/your-name/" method="post">
+  {% csrf_token %} {{ form }}
+  <input type="submit" value="Submit" />
+</form>
+
+{% endblock %}

@@ -9,6 +9,8 @@ class Notverfahren_Flug(models.Model):
     class Meta:
         verbose_name_plural = 'Notverfahren_Flug'
 
+
+
 class Notverfahren_Medizin(models.Model):
     name = models.CharField(max_length=50)
     
