@@ -3,6 +3,8 @@
 {% load static %}
 <!---->
 {% block content %}
+<!---->
+{% if user.is_authenticated %}
 <nav class="navbar sticky-top navbar-expand-lg navbar-white bg-white">
   <a href="{% url 'index' %}" class="navbar-brand p-1">
     <img src="{% static 'main/img/logo.png' %}" height="20" />
@@ -23,8 +25,9 @@
     <div class="navbar-nav p-1">
       <a href="#Allgemein" class="nav-item nav-link">dummylink</a>
 
+      <a href="{% url 'logout' %}" class="btn btn-grey border m-1">Log-Out</a>
       <a href="{% url 'admin:index' %}" class="btn btn-grey border m-1"
-        >Log-In</a
+        >Admin</a
       >
     </div>
   </div>
@@ -66,4 +69,11 @@
     </form>
   </table>
 </div>
+
+{% else %}
+<!---->
+<p>You are not logged in</p>
+<a href="{% url 'index' %}">Log In</a>
+{% endif %}
+<!---->
 {% endblock %}
