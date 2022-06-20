@@ -1,0 +1,14 @@
+{% extends 'main/main_temp.html' %}
+<!---->
+{% load static %}
+<!---->
+{% block content %}
+<!---->
+<form method="POST">
+  {% csrf_token %}
+  <!---->
+  {{ form.as_p }}
+  <button type="submit">Sign Up</button>
+</form>
+<a href="#">Already have an account, sign In.</a>
+{% endblock %}

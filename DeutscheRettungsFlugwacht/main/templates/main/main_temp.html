@@ -17,7 +17,11 @@
   </head>
 
   <body onload="startTime()">
-    {% include 'main/includes/messages.html' %}
+    <div class="col-md-8"></div>
+    {% if messages %} {% for message in messages %}
+    <div class="alert {{message.tags}}">{{ message }}</div>
+    {% endfor %} {% endif %}
+
     <div class="container-fluid">
       {% block content %}
       <!-- SIDE CONTENT -->
